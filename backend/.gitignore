@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# Environment variables
+.env
+*.env
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node / Frontend
+node_modules/
+dist/
+.next/
+frontend/.env
+frontend/.env.local
+
+# Database
+*.sqlite
+*.db
+
+# ML model cache
+hf_cache/
+*.index
+data/faiss.index
+
+# Uploads / temp files
+uploads/
+tmp/
+*.pdf
+
+# Logs
+*.log
+logs/
+
+# Docker
+.dockerignore
+
+# JWT / secrets
+*.pem
+*.key

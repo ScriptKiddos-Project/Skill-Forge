@@ -1,0 +1,162 @@
+[
+  {
+    "id": "rjd001",
+    "title": "Senior Machine Learning Engineer",
+    "company": "DataScale AI",
+    "role_category": "tech",
+    "raw_text": "We are looking for a Senior ML Engineer to build and deploy production ML systems. You will design scalable pipelines, train deep learning models, and work with NLP and computer vision teams. Strong Python and PyTorch skills required.",
+    "skills": ["python", "machine-learning", "deep-learning", "nlp", "pytorch", "docker", "kubernetes", "mlops"]
+  },
+  {
+    "id": "rjd002",
+    "title": "Data Scientist",
+    "company": "InsightCorp",
+    "role_category": "tech",
+    "raw_text": "Join our analytics team as a Data Scientist. You will develop statistical models, perform exploratory data analysis, and present findings to business stakeholders. Must be proficient in Python and SQL.",
+    "skills": ["python", "sql", "statistics", "data-analysis", "machine-learning", "data-visualization"]
+  },
+  {
+    "id": "rjd003",
+    "title": "Backend Engineer - Python",
+    "company": "CloudBuild",
+    "role_category": "tech",
+    "raw_text": "We need a backend engineer proficient in Python and FastAPI. You will build RESTful APIs, manage PostgreSQL databases, and deploy using Docker on AWS. CI/CD experience expected.",
+    "skills": ["python", "fastapi", "postgresql", "docker", "aws", "ci-cd", "rest-api"]
+  },
+  {
+    "id": "rjd004",
+    "title": "Full Stack Developer",
+    "company": "StartupXYZ",
+    "role_category": "tech",
+    "raw_text": "Full stack developer needed to build modern web applications. Must have React, TypeScript, and Node.js experience on the frontend and Python or Node backend. Docker and Kubernetes a plus.",
+    "skills": ["react", "typescript", "javascript", "python", "docker", "postgresql", "rest-api"]
+  },
+  {
+    "id": "rjd005",
+    "title": "NLP Research Engineer",
+    "company": "LanguageAI",
+    "role_category": "tech",
+    "raw_text": "Looking for an NLP engineer to develop language models and fine-tune transformers. Experience with Hugging Face, BERT, GPT, and production deployment of LLMs required. Deep learning background essential.",
+    "skills": ["nlp", "deep-learning", "python", "transformers", "pytorch", "machine-learning", "mlops"]
+  },
+  {
+    "id": "rjd006",
+    "title": "Business Analyst",
+    "company": "ConsultPro",
+    "role_category": "business",
+    "raw_text": "Business Analyst to support strategy and operations teams. You will perform data analysis, build Excel models, create dashboards, and present to senior management. SQL and Power BI experience preferred.",
+    "skills": ["business-analytics", "excel", "sql", "data-visualization", "statistics", "communication"]
+  },
+  {
+    "id": "rjd007",
+    "title": "Product Manager - Data Products",
+    "company": "ProductLabs",
+    "role_category": "business",
+    "raw_text": "Product Manager to drive the roadmap for our data analytics platform. You will collaborate cross-functionally, define KPIs, run A/B tests, and manage stakeholders. MBA or equivalent experience preferred.",
+    "skills": ["product-management", "business-analytics", "project-management", "stakeholder-management", "communication", "statistics"]
+  },
+  {
+    "id": "rjd008",
+    "title": "Financial Analyst",
+    "company": "CapitalGroup",
+    "role_category": "business",
+    "raw_text": "Financial Analyst to build DCF models, create financial forecasts, and support M&A analysis. Advanced Excel and financial modeling skills required. Python for automation is a plus.",
+    "skills": ["financial-modeling", "excel", "business-analytics", "statistics", "python", "communication"]
+  },
+  {
+    "id": "rjd009",
+    "title": "Operations Manager",
+    "company": "LogiFlow",
+    "role_category": "ops",
+    "raw_text": "Operations Manager to oversee supply chain, optimize processes, and manage vendor relationships. Lean Six Sigma certification preferred. Experience with ERP systems and process improvement methodologies required.",
+    "skills": ["supply-chain", "process-optimization", "lean-six-sigma", "project-management", "stakeholder-management", "excel"]
+  },
+  {
+    "id": "rjd010",
+    "title": "Supply Chain Analyst",
+    "company": "RetailMax",
+    "role_category": "ops",
+    "raw_text": "Supply Chain Analyst to analyze inventory data, optimize procurement, and report on logistics KPIs. SQL for data extraction and Excel for modeling. Experience with supply chain management systems required.",
+    "skills": ["supply-chain", "sql", "excel", "business-analytics", "data-analysis", "process-optimization"]
+  },
+  {
+    "id": "rjd011",
+    "title": "DevOps Engineer",
+    "company": "CloudOps Ltd",
+    "role_category": "tech",
+    "raw_text": "DevOps Engineer to manage CI/CD pipelines, Kubernetes clusters, and cloud infrastructure. AWS and Terraform experience required. Must be comfortable with Docker and Linux administration.",
+    "skills": ["devops", "kubernetes", "docker", "aws", "ci-cd", "terraform", "linux"]
+  },
+  {
+    "id": "rjd012",
+    "title": "MLOps Engineer",
+    "company": "ScaleML",
+    "role_category": "tech",
+    "raw_text": "MLOps Engineer to manage the ML lifecycle from training to production. You will deploy models using Docker and Kubernetes, set up monitoring, and automate retraining pipelines with MLflow and Airflow.",
+    "skills": ["mlops", "python", "docker", "kubernetes", "aws", "machine-learning", "ci-cd", "deep-learning"]
+  },
+  {
+    "id": "rjd013",
+    "title": "Computer Vision Engineer",
+    "company": "VisionTech",
+    "role_category": "tech",
+    "raw_text": "Computer Vision Engineer to develop real-time image recognition systems. Strong experience in PyTorch, OpenCV, and YOLO-based object detection required. Must be able to deploy models to edge devices.",
+    "skills": ["computer-vision", "deep-learning", "python", "pytorch", "machine-learning", "mlops"]
+  },
+  {
+    "id": "rjd014",
+    "title": "Marketing Analyst",
+    "company": "GrowthCo",
+    "role_category": "business",
+    "raw_text": "Marketing Analyst to analyze campaign performance, run A/B tests, and provide insights to improve customer acquisition. Proficiency in SQL, Excel, and Google Analytics required. Statistics background helpful.",
+    "skills": ["business-analytics", "sql", "excel", "statistics", "data-visualization", "communication"]
+  },
+  {
+    "id": "rjd015",
+    "title": "Project Manager",
+    "company": "DeliverRight",
+    "role_category": "business",
+    "raw_text": "Project Manager to lead cross-functional software delivery teams. PMP or Agile certification preferred. Must manage stakeholders, maintain project schedules, and coordinate between engineering and business teams.",
+    "skills": ["project-management", "agile", "stakeholder-management", "communication", "leadership", "business-analytics"]
+  },
+  {
+    "id": "rjd016",
+    "title": "Quality Assurance Engineer",
+    "company": "QA Systems",
+    "role_category": "ops",
+    "raw_text": "QA Engineer to design and implement test strategies for web and API applications. Experience with Python testing frameworks (pytest), Docker for test environments, and CI/CD pipelines required.",
+    "skills": ["python", "docker", "ci-cd", "process-optimization", "communication"]
+  },
+  {
+    "id": "rjd017",
+    "title": "Data Engineer",
+    "company": "PipelineData",
+    "role_category": "tech",
+    "raw_text": "Data Engineer to build and maintain large-scale data pipelines. Experience with Apache Spark, PostgreSQL, Python, and cloud platforms required. Strong SQL skills and knowledge of data warehousing essential.",
+    "skills": ["python", "sql", "postgresql", "apache-spark", "aws", "docker", "data-analysis"]
+  },
+  {
+    "id": "rjd018",
+    "title": "Scrum Master",
+    "company": "AgileFirst",
+    "role_category": "business",
+    "raw_text": "Scrum Master to facilitate agile ceremonies, remove blockers, and coach teams on Agile principles. CSM certification required. Must work with product owners, developers, and senior leadership.",
+    "skills": ["project-management", "agile", "leadership", "communication", "stakeholder-management"]
+  },
+  {
+    "id": "rjd019",
+    "title": "Logistics Coordinator",
+    "company": "FreightPro",
+    "role_category": "ops",
+    "raw_text": "Logistics Coordinator to manage inbound and outbound shipments, coordinate with vendors, and maintain inventory systems. Supply chain knowledge required. Excel and ERP system experience a must.",
+    "skills": ["supply-chain", "excel", "process-optimization", "communication", "business-analytics"]
+  },
+  {
+    "id": "rjd020",
+    "title": "AI Product Engineer",
+    "company": "BuildAI",
+    "role_category": "tech",
+    "raw_text": "AI Product Engineer combining ML and software engineering to build end-to-end AI products. Must know Python, FastAPI, React, Docker, and ML fundamentals. Experience with LLMs and NLP strongly preferred.",
+    "skills": ["python", "machine-learning", "nlp", "fastapi", "react", "docker", "postgresql", "deep-learning"]
+  }
+]

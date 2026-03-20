@@ -1,0 +1,372 @@
+{
+  "ML Fundamentals": [
+    {
+      "question": "Which algorithm minimizes loss by moving in the direction of the negative gradient?",
+      "options": ["A) Random Forest", "B) Gradient Descent", "C) Support Vector Machine", "D) K-Means Clustering"],
+      "correct_answer": "B",
+      "explanation": "Gradient Descent updates model parameters by moving opposite to the gradient of the loss function.",
+      "subtopic": "gradient descent"
+    },
+    {
+      "question": "What does the bias-variance tradeoff describe in machine learning?",
+      "options": ["A) Memory vs compute tradeoff", "B) Training vs inference speed", "C) Underfitting vs overfitting balance", "D) Data vs model complexity"],
+      "correct_answer": "C",
+      "explanation": "High bias causes underfitting while high variance causes overfitting; the tradeoff balances both errors.",
+      "subtopic": "bias-variance tradeoff"
+    },
+    {
+      "question": "Which metric is most appropriate for an imbalanced binary classification problem?",
+      "options": ["A) Accuracy", "B) Mean Squared Error", "C) R-squared", "D) F1-Score"],
+      "correct_answer": "D",
+      "explanation": "F1-Score balances precision and recall, making it suitable when classes are imbalanced.",
+      "subtopic": "evaluation metrics"
+    },
+    {
+      "question": "What is the purpose of regularization in machine learning?",
+      "options": ["A) Speed up training", "B) Increase model complexity", "C) Prevent overfitting", "D) Normalize input features"],
+      "correct_answer": "C",
+      "explanation": "Regularization adds a penalty term to the loss function to discourage overly complex models.",
+      "subtopic": "regularization"
+    },
+    {
+      "question": "In cross-validation, what does k-fold mean?",
+      "options": ["A) The data is shuffled k times", "B) k features are selected", "C) The dataset is split into k equal parts for validation", "D) The model runs k epochs"],
+      "correct_answer": "C",
+      "explanation": "K-fold cross-validation splits data into k folds, trains on k-1 and validates on 1, rotating k times.",
+      "subtopic": "cross-validation"
+    }
+  ],
+  "Deep Learning": [
+    {
+      "question": "What is backpropagation in neural networks?",
+      "options": ["A) Forward pass through layers", "B) Algorithm to compute gradients via chain rule", "C) Regularization technique", "D) Activation function"],
+      "correct_answer": "B",
+      "explanation": "Backpropagation computes gradients of the loss with respect to weights using the chain rule.",
+      "subtopic": "backpropagation"
+    },
+    {
+      "question": "Which activation function is most commonly used in hidden layers of deep networks?",
+      "options": ["A) Sigmoid", "B) Tanh", "C) ReLU", "D) Softmax"],
+      "correct_answer": "C",
+      "explanation": "ReLU is computationally efficient and avoids the vanishing gradient problem common with sigmoid/tanh.",
+      "subtopic": "activation functions"
+    },
+    {
+      "question": "What problem does batch normalization solve?",
+      "options": ["A) Overfitting", "B) Internal covariate shift", "C) Exploding gradients only", "D) Underfitting"],
+      "correct_answer": "B",
+      "explanation": "Batch normalization normalizes layer inputs, reducing internal covariate shift and stabilizing training.",
+      "subtopic": "batch normalization"
+    },
+    {
+      "question": "What is the vanishing gradient problem?",
+      "options": ["A) Gradients become too large", "B) Model weights are deleted", "C) Gradients become nearly zero in early layers", "D) Loss becomes negative"],
+      "correct_answer": "C",
+      "explanation": "In deep networks with sigmoid/tanh, gradients can shrink exponentially during backprop, stopping learning.",
+      "subtopic": "vanishing gradient"
+    },
+    {
+      "question": "What does dropout do during training?",
+      "options": ["A) Removes low-importance features", "B) Randomly deactivates neurons to prevent overfitting", "C) Reduces learning rate", "D) Clips gradients"],
+      "correct_answer": "B",
+      "explanation": "Dropout randomly sets neuron activations to zero during training, acting as an ensemble regularizer.",
+      "subtopic": "dropout"
+    }
+  ],
+  "NLP": [
+    {
+      "question": "What does TF-IDF measure in text analysis?",
+      "options": ["A) Sentence similarity", "B) Word importance relative to document and corpus", "C) Part-of-speech tags", "D) Named entity count"],
+      "correct_answer": "B",
+      "explanation": "TF-IDF multiplies term frequency by inverse document frequency to surface distinctive words.",
+      "subtopic": "tf-idf"
+    },
+    {
+      "question": "What is the self-attention mechanism in Transformers?",
+      "options": ["A) A type of RNN", "B) Mechanism where each token attends to all others in the sequence", "C) Word embedding layer", "D) Output softmax layer"],
+      "correct_answer": "B",
+      "explanation": "Self-attention computes weighted relationships between all token pairs, enabling parallel context modeling.",
+      "subtopic": "self-attention"
+    },
+    {
+      "question": "Which of these is a pre-trained language model?",
+      "options": ["A) FAISS", "B) TF-IDF", "C) BERT", "D) K-Means"],
+      "correct_answer": "C",
+      "explanation": "BERT (Bidirectional Encoder Representations from Transformers) is a pre-trained transformer-based language model.",
+      "subtopic": "language models"
+    },
+    {
+      "question": "What is tokenization in NLP?",
+      "options": ["A) Converting text to vectors", "B) Splitting text into tokens (words/subwords)", "C) Removing stopwords", "D) Stemming words"],
+      "correct_answer": "B",
+      "explanation": "Tokenization splits raw text into tokens which are the basic units processed by NLP models.",
+      "subtopic": "tokenization"
+    },
+    {
+      "question": "What does word embedding capture that one-hot encoding does not?",
+      "options": ["A) Exact word spelling", "B) Word frequency", "C) Semantic similarity between words", "D) Grammatical rules"],
+      "correct_answer": "C",
+      "explanation": "Word embeddings (e.g., Word2Vec, GloVe) encode semantic meaning so similar words have similar vectors.",
+      "subtopic": "word embeddings"
+    }
+  ],
+  "Python": [
+    {
+      "question": "What is a Python decorator?",
+      "options": ["A) A design pattern for inheritance", "B) A function that wraps another function to extend behavior", "C) A way to format strings", "D) A type of list comprehension"],
+      "correct_answer": "B",
+      "explanation": "Decorators use the @syntax and wrap functions to add behavior before or after the original function.",
+      "subtopic": "decorators"
+    },
+    {
+      "question": "What does the 'yield' keyword do in Python?",
+      "options": ["A) Exits the function immediately", "B) Returns a value and suspends the function state", "C) Creates a new thread", "D) Raises an exception"],
+      "correct_answer": "B",
+      "explanation": "yield makes a function a generator, suspending state and resuming on next() calls.",
+      "subtopic": "generators"
+    },
+    {
+      "question": "What is the difference between a list and a tuple in Python?",
+      "options": ["A) Lists are ordered, tuples are not", "B) Lists are mutable, tuples are immutable", "C) Tuples can contain more elements", "D) There is no difference"],
+      "correct_answer": "B",
+      "explanation": "Lists can be modified after creation; tuples are immutable and thus faster and hashable.",
+      "subtopic": "data structures"
+    },
+    {
+      "question": "What does 'with' statement provide in Python?",
+      "options": ["A) Loop control", "B) Exception re-raise", "C) Context management to ensure resource cleanup", "D) Variable scoping"],
+      "correct_answer": "C",
+      "explanation": "The 'with' statement uses context managers (__enter__/__exit__) to ensure cleanup like closing files.",
+      "subtopic": "context managers"
+    },
+    {
+      "question": "What is a Python list comprehension?",
+      "options": ["A) A way to import lists from files", "B) A concise syntax for creating lists from iterables", "C) A method to copy nested lists", "D) A loop that modifies lists in place"],
+      "correct_answer": "B",
+      "explanation": "List comprehensions like [x*2 for x in range(10)] provide a compact, readable way to create lists.",
+      "subtopic": "list comprehension"
+    }
+  ],
+  "SQL": [
+    {
+      "question": "What is the difference between INNER JOIN and LEFT JOIN?",
+      "options": ["A) No difference", "B) INNER JOIN returns only matching rows; LEFT JOIN returns all left table rows", "C) LEFT JOIN is faster", "D) INNER JOIN includes NULLs"],
+      "correct_answer": "B",
+      "explanation": "INNER JOIN returns rows with matches in both tables; LEFT JOIN keeps all rows from the left table.",
+      "subtopic": "joins"
+    },
+    {
+      "question": "What does a window function do in SQL?",
+      "options": ["A) Creates a new table", "B) Performs aggregate calculation over a partition without collapsing rows", "C) Opens a database connection", "D) Filters rows after grouping"],
+      "correct_answer": "B",
+      "explanation": "Window functions like ROW_NUMBER() OVER (PARTITION BY ...) compute values across related rows without GROUP BY.",
+      "subtopic": "window functions"
+    },
+    {
+      "question": "What is the purpose of an index in a database?",
+      "options": ["A) Enforce uniqueness on all columns", "B) Speed up query lookups at the cost of write overhead", "C) Automatically join tables", "D) Store backup copies of data"],
+      "correct_answer": "B",
+      "explanation": "Indexes create data structures that allow the database to find rows faster, trading write speed for read speed.",
+      "subtopic": "indexing"
+    },
+    {
+      "question": "What does GROUP BY do in SQL?",
+      "options": ["A) Sorts the result set", "B) Filters rows with a condition", "C) Aggregates rows sharing common column values", "D) Joins two tables"],
+      "correct_answer": "C",
+      "explanation": "GROUP BY collapses rows with identical values in specified columns and applies aggregate functions.",
+      "subtopic": "aggregation"
+    },
+    {
+      "question": "What is a subquery?",
+      "options": ["A) A stored procedure", "B) A query nested inside another query", "C) A database view", "D) A type of JOIN"],
+      "correct_answer": "B",
+      "explanation": "A subquery is a SELECT statement embedded inside another query, used in WHERE, FROM, or SELECT clauses.",
+      "subtopic": "subqueries"
+    }
+  ],
+  "Statistics": [
+    {
+      "question": "What does a p-value represent in hypothesis testing?",
+      "options": ["A) Probability the null hypothesis is true", "B) Probability of observing results as extreme as seen, assuming null hypothesis is true", "C) Confidence interval width", "D) Effect size"],
+      "correct_answer": "B",
+      "explanation": "A p-value tells us how likely we'd see our data by chance if the null hypothesis were true.",
+      "subtopic": "hypothesis testing"
+    },
+    {
+      "question": "What is the Central Limit Theorem?",
+      "options": ["A) The mean is always in the center of data", "B) Normal distributions have no variance", "C) Sample means approach normal distribution as sample size increases", "D) All distributions are uniform with large samples"],
+      "correct_answer": "C",
+      "explanation": "CLT states that the distribution of sample means becomes approximately normal as n increases, regardless of population distribution.",
+      "subtopic": "central limit theorem"
+    },
+    {
+      "question": "What does standard deviation measure?",
+      "options": ["A) The center of the data", "B) The spread/dispersion of data around the mean", "C) The correlation between two variables", "D) The number of outliers"],
+      "correct_answer": "B",
+      "explanation": "Standard deviation quantifies how much values deviate from the mean on average.",
+      "subtopic": "descriptive statistics"
+    },
+    {
+      "question": "What is Bayes' Theorem used for?",
+      "options": ["A) Computing variance", "B) Updating the probability of a hypothesis given new evidence", "C) Calculating z-scores", "D) Fitting regression lines"],
+      "correct_answer": "B",
+      "explanation": "Bayes' Theorem: P(A|B) = P(B|A) * P(A) / P(B), updating prior beliefs with observed evidence.",
+      "subtopic": "bayesian probability"
+    },
+    {
+      "question": "What is overfitting in the context of statistical modeling?",
+      "options": ["A) Model is too simple", "B) Model captures noise and performs poorly on unseen data", "C) Training data is too small", "D) Features are correlated"],
+      "correct_answer": "B",
+      "explanation": "Overfitting occurs when a model learns training data patterns too specifically and fails to generalize.",
+      "subtopic": "overfitting"
+    }
+  ],
+  "Docker": [
+    {
+      "question": "What is a Docker image?",
+      "options": ["A) A running instance of a container", "B) A read-only template with instructions to create a container", "C) A network configuration file", "D) A Docker registry"],
+      "correct_answer": "B",
+      "explanation": "A Docker image is an immutable template that defines the container's filesystem and configuration.",
+      "subtopic": "images vs containers"
+    },
+    {
+      "question": "What does the COPY instruction do in a Dockerfile?",
+      "options": ["A) Copies an image layer", "B) Copies files from the host into the image", "C) Creates a new container", "D) Runs a shell command"],
+      "correct_answer": "B",
+      "explanation": "COPY transfers files from the build context (host machine) into the Docker image filesystem.",
+      "subtopic": "dockerfile"
+    },
+    {
+      "question": "What is the purpose of docker-compose?",
+      "options": ["A) Build images faster", "B) Manage multi-container applications with a single YAML file", "C) Monitor container health", "D) Push images to Docker Hub"],
+      "correct_answer": "B",
+      "explanation": "docker-compose defines and runs multi-container Docker apps using a docker-compose.yml configuration.",
+      "subtopic": "docker-compose"
+    },
+    {
+      "question": "What does 'docker ps' show?",
+      "options": ["A) All available images", "B) Stopped containers only", "C) Currently running containers", "D) Docker network configuration"],
+      "correct_answer": "C",
+      "explanation": "docker ps lists currently running containers; use docker ps -a to include stopped containers.",
+      "subtopic": "container management"
+    },
+    {
+      "question": "What is a Docker volume used for?",
+      "options": ["A) Increasing container CPU", "B) Persisting data outside container lifecycle", "C) Networking between containers", "D) Setting environment variables"],
+      "correct_answer": "B",
+      "explanation": "Volumes persist data beyond container restarts and can be shared between containers.",
+      "subtopic": "volumes"
+    }
+  ],
+  "AWS": [
+    {
+      "question": "What is Amazon S3 primarily used for?",
+      "options": ["A) Running virtual machines", "B) Object/file storage", "C) Running containers", "D) DNS management"],
+      "correct_answer": "B",
+      "explanation": "S3 (Simple Storage Service) is an object storage service for files, backups, datasets, and static assets.",
+      "subtopic": "s3"
+    },
+    {
+      "question": "What does AWS IAM manage?",
+      "options": ["A) Network routing", "B) Storage buckets", "C) Users, roles, and permissions for AWS resources", "D) Container orchestration"],
+      "correct_answer": "C",
+      "explanation": "IAM (Identity and Access Management) controls who can access which AWS resources and with what permissions.",
+      "subtopic": "iam"
+    },
+    {
+      "question": "What is AWS Lambda?",
+      "options": ["A) A container service", "B) A serverless compute service that runs code on demand", "C) A managed database", "D) A CDN service"],
+      "correct_answer": "B",
+      "explanation": "Lambda runs code in response to events without provisioning servers, charging only for compute time used.",
+      "subtopic": "lambda"
+    },
+    {
+      "question": "What is the purpose of a VPC in AWS?",
+      "options": ["A) Version control for code", "B) Isolated virtual network for AWS resources", "C) Video processing service", "D) Object storage"],
+      "correct_answer": "B",
+      "explanation": "A Virtual Private Cloud provides an isolated network section in AWS with custom IP ranges and security.",
+      "subtopic": "vpc"
+    },
+    {
+      "question": "What is AWS EC2?",
+      "options": ["A) Email service", "B) Content delivery network", "C) Scalable virtual machine compute service", "D) NoSQL database"],
+      "correct_answer": "C",
+      "explanation": "EC2 (Elastic Compute Cloud) provides resizable virtual machines (instances) in the cloud.",
+      "subtopic": "ec2"
+    }
+  ],
+  "Business Analytics": [
+    {
+      "question": "What does KPI stand for?",
+      "options": ["A) Key Performance Indicator", "B) Known Process Integration", "C) Key Product Inventory", "D) Knowledge Process Index"],
+      "correct_answer": "A",
+      "explanation": "KPIs are measurable values that demonstrate how effectively an organization is achieving key objectives.",
+      "subtopic": "kpis"
+    },
+    {
+      "question": "What is cohort analysis used for?",
+      "options": ["A) Forecasting revenue", "B) Tracking behavior of groups over time", "C) Segmenting geographic markets", "D) A/B test analysis"],
+      "correct_answer": "B",
+      "explanation": "Cohort analysis groups users by a shared characteristic (e.g., signup date) to track behavior over time.",
+      "subtopic": "cohort analysis"
+    },
+    {
+      "question": "What does customer churn rate measure?",
+      "options": ["A) Revenue growth rate", "B) Percentage of customers who stop using a product over a period", "C) Cost to acquire a customer", "D) Customer satisfaction score"],
+      "correct_answer": "B",
+      "explanation": "Churn rate = (customers lost / starting customers) * 100, measuring customer retention health.",
+      "subtopic": "churn analysis"
+    },
+    {
+      "question": "What is A/B testing?",
+      "options": ["A) Testing two database versions", "B) Comparing two variants to determine which performs better", "C) Alpha-beta pruning in algorithms", "D) Testing on two operating systems"],
+      "correct_answer": "B",
+      "explanation": "A/B testing randomly assigns users to variant A or B and measures which produces better outcomes.",
+      "subtopic": "a/b testing"
+    },
+    {
+      "question": "What is the purpose of a pivot table?",
+      "options": ["A) Rotate a database schema", "B) Summarize and aggregate data from a larger dataset", "C) Create statistical models", "D) Format charts automatically"],
+      "correct_answer": "B",
+      "explanation": "Pivot tables dynamically summarize rows of data into grouped summaries, counts, sums, and averages.",
+      "subtopic": "pivot tables"
+    }
+  ],
+  "Project Management": [
+    {
+      "question": "What does the acronym 'SMART' stand for in goal setting?",
+      "options": ["A) Simple, Manageable, Achievable, Realistic, Timely", "B) Specific, Measurable, Achievable, Relevant, Time-bound", "C) Strategic, Motivated, Agile, Resourced, Tracked", "D) Scalable, Meaningful, Aligned, Relevant, Tested"],
+      "correct_answer": "B",
+      "explanation": "SMART goals are Specific, Measurable, Achievable, Relevant, and Time-bound to ensure clarity.",
+      "subtopic": "goal setting"
+    },
+    {
+      "question": "What is a critical path in project management?",
+      "options": ["A) The most expensive task sequence", "B) The longest sequence of dependent tasks determining project duration", "C) The path with most risk", "D) Tasks only the PM can approve"],
+      "correct_answer": "B",
+      "explanation": "The critical path is the longest chain of dependent activities; any delay there delays the whole project.",
+      "subtopic": "critical path"
+    },
+    {
+      "question": "What is a Sprint in Agile/Scrum?",
+      "options": ["A) A performance review cycle", "B) A time-boxed iteration (usually 2 weeks) to complete a set of tasks", "C) A bug-fixing session", "D) A daily standup meeting"],
+      "correct_answer": "B",
+      "explanation": "A Sprint is a fixed-length development cycle where a Scrum team commits to delivering a set of work.",
+      "subtopic": "scrum"
+    },
+    {
+      "question": "What does a project stakeholder include?",
+      "options": ["A) Only the project sponsor", "B) Any person or group affected by or who can affect the project", "C) Only paying customers", "D) The development team exclusively"],
+      "correct_answer": "B",
+      "explanation": "Stakeholders include anyone with an interest in the project: clients, sponsors, teams, end users, regulators.",
+      "subtopic": "stakeholders"
+    },
+    {
+      "question": "What is scope creep?",
+      "options": ["A) Gradual increase in project budget", "B) Uncontrolled expansion of project scope beyond original objectives", "C) Delay in project timeline", "D) Addition of new team members"],
+      "correct_answer": "B",
+      "explanation": "Scope creep is the gradual expansion of requirements without adjusting timeline, budget, or resources.",
+      "subtopic": "scope management"
+    }
+  ]
+}
