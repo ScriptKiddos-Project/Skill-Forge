@@ -19,6 +19,9 @@ class ChatMessage(BaseModel):
     role:    str    # "user" | "mentor"
     content: str
 
+    class Config:
+        extra = "allow"   # ← ignore extra fields like timestamp
+
 
 class ChatRequest(BaseModel):
     message: str
