@@ -98,20 +98,21 @@ export default function MentorChat({ compact = false }) {
         const reply = getDemoReply(text)
         addMessage({ role: 'assistant', content: reply, timestamp: new Date().toISOString() })
       } else {
-        const history = [...chatHistory, userMsg].slice(-6)
 
         // ── FIX: backend expects { message, user_id, history } ──────────
         const res = await api.post('/api/chat', {
           message: text,
-          user_id: user?.id ?? user?.user_id ?? '',   // adapt key to match your auth store shape
-          history,
+          user_id: user?.id,
+          history: [...chatHistory, userMsg].slice(-6).map(m => ({
+            role: m.role === 'assistant' ? 'mentor' : m.role,
+            content: m.content
+          }))
         })
-
-        addMessage({ role: 'assistant', content: res.data.reply, timestamp: new Date().toISOString() })
+        addMessage({ role: 'assistant', content: res.data.response, timestamp: new Date().toISOString() })
       }
     } catch (err) {
       console.error('Chat error:', err)
-      addMessage({ role: 'assistant', content: 'Connection error. Please retry.', timestamp: new Date().toISOString() })
+      addMessage({ role: 'mentor', content: 'Connection error. Please retry.', timestamp: new Date().toISOString() })
     } finally {
       setIsLoading(false)
     }
