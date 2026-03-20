@@ -77,7 +77,7 @@ export default function QuizResult({ result, skill, onClose }) {
 
       {/* Adaptive engine log */}
       <div className="terminal-panel rounded p-3 text-left text-xs font-mono">
-        <p style={{ color: 'rgba(0,245,255,0.5)' }}>> adaptive_engine.update()</p>
+        <p style={{ color: 'rgba(0,245,255,0.5)' }}> adaptive_engine.update()</p>
         <p className="text-gray-500 mt-1">
           action=<span style={{ color: cfg.color }}>{result.action}</span>
           &nbsp;| score=<span style={{ color: cfg.color }}>{pct}%</span>
