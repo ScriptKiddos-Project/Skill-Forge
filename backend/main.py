@@ -6,7 +6,17 @@ from fastapi.middleware.cors import CORSMiddleware
 from database import engine, SessionLocal
 from models import User, SkillProfile, Pathway, QuizAttempt, AnalysisJob, RemoteJD
 from database import Base
+
+# ── Import all routers ────────────────────────────────────────────────────────
 from routers import auth as auth_router
+from routers import upload as upload_router
+from routers import analyze as analyze_router
+from routers import pathway as pathway_router
+from routers import resources as resources_router
+from routers import quiz as quiz_router
+from routers import progress as progress_router
+from routers import chat as chat_router
+from routers import jds as jds_router
 
 
 @asynccontextmanager
@@ -38,6 +48,18 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         print(f"[startup] Skill graph load failed: {e}")
 
+    # Seed RemoteOK JDs if table is empty
+    db = SessionLocal()
+    try:
+        if db.query(RemoteJD).count() == 0:
+            from routers.jds import fetch_and_seed_jds
+            count = fetch_and_seed_jds(db, limit=20)
+            print(f"[startup] Seeded {count} RemoteOK JDs")
+    except Exception as e:
+        print(f"[startup] JD seed skipped: {e}")
+    finally:
+        db.close()
+
     yield
 
 
@@ -56,8 +78,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Routers — Phase 1 only includes auth. Others wired in later phases.
-app.include_router(auth_router.router, prefix="/api")
+# ── Register all routers with /api prefix ─────────────────────────────────────
+app.include_router(auth_router.router,      prefix="/api")
+app.include_router(upload_router.router,    prefix="/api")
+app.include_router(analyze_router.router,   prefix="/api")
+app.include_router(pathway_router.router,   prefix="/api")
+app.include_router(resources_router.router, prefix="/api")
+app.include_router(quiz_router.router,      prefix="/api")
+app.include_router(progress_router.router,  prefix="/api")
+app.include_router(chat_router.router,      prefix="/api")
+app.include_router(jds_router.router,       prefix="/api")
 
 
 @app.get("/api/health")

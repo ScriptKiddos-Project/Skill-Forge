@@ -53,7 +53,7 @@ export default function OnboardingPage() {
       if (jdTab === 'upload' && jdFile) fd.append('jd_file', jdFile)
       if (jdTab === 'remotejob' && selectedJob) fd.append('jd_id', selectedJob.id)
 
-      const res = await api.post('/analyze', fd, { headers: { 'Content-Type': 'multipart/form-data' } })
+      const res = await api.post('/api/analyze', fd, { headers: { 'Content-Type': 'multipart/form-data' } })
       navigate(`/analyzing?job_id=${res.data.job_id}`)
     } catch (err) {
       console.error(err)

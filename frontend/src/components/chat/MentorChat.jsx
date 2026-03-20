@@ -100,7 +100,7 @@ export default function MentorChat({ compact = false }) {
         addMessage({ role: 'assistant', content: reply, timestamp: new Date().toISOString() })
       } else {
         const history = [...chatHistory, userMsg].slice(-6)
-        const res = await api.post('/chat', { message: text, history })
+        const res = await api.post('/api/chat', { message: text, history })
         addMessage({ role: 'assistant', content: res.data.reply, timestamp: new Date().toISOString() })
       }
     } catch {
