@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --neon-cyan: #00f5ff;
+    --neon-blue: #0066ff;
+    --neon-purple: #8b00ff;
+    --neon-pink: #ff00aa;
+    --neon-green: #00ff88;
+    --dark-base: #020817;
+    --dark-card: #060e1f;
+    --dark-border: #0f2040;
+    --dark-surface: #0a1628;
+  }
+
+  html, body, #root {
+    @apply h-full;
+    background-color: #020817;
+    color: #e2e8f0;
+    font-family: 'Rajdhani', sans-serif;
+  }
+}
+
+@layer components {
+  /* Glass card */
+  .glass-card {
+    @apply rounded-lg border backdrop-blur-md;
+    background: rgba(6, 14, 31, 0.85);
+    border-color: rgba(15, 32, 64, 0.8);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
+  }
+
+  .glass-card-cyan {
+    @apply glass-card;
+    border-color: rgba(0, 245, 255, 0.2);
+    box-shadow: 0 0 0 1px rgba(0,245,255,0.1), 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(0,245,255,0.05);
+  }
+
+  .glass-card-blue {
+    @apply glass-card;
+    border-color: rgba(0, 102, 255, 0.25);
+    box-shadow: 0 0 0 1px rgba(0,102,255,0.1), 0 8px 32px rgba(0,0,0,0.5);
+  }
+
+  .glass-card-purple {
+    @apply glass-card;
+    border-color: rgba(139, 0, 255, 0.25);
+    box-shadow: 0 0 0 1px rgba(139,0,255,0.1), 0 8px 32px rgba(0,0,0,0.5);
+  }
+
+  /* Neon text */
+  .neon-text-cyan {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px rgba(0,245,255,0.8), 0 0 30px rgba(0,245,255,0.4);
+  }
+  .neon-text-blue {
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px rgba(0,102,255,0.8), 0 0 30px rgba(0,102,255,0.4);
+  }
+  .neon-text-purple {
+    color: #a855f7;
+    text-shadow: 0 0 10px rgba(168,85,247,0.8), 0 0 30px rgba(168,85,247,0.4);
+  }
+  .neon-text-green {
+    color: var(--neon-green);
+    text-shadow: 0 0 10px rgba(0,255,136,0.8), 0 0 30px rgba(0,255,136,0.4);
+  }
+  .neon-text-pink {
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px rgba(255,0,170,0.8), 0 0 30px rgba(255,0,170,0.4);
+  }
+
+  /* Buttons */
+  .btn-neon-cyan {
+    @apply px-6 py-2.5 font-mono text-sm font-semibold tracking-wider uppercase transition-all duration-300;
+    color: var(--neon-cyan);
+    border: 1px solid rgba(0,245,255,0.4);
+    background: rgba(0,245,255,0.05);
+    border-radius: 4px;
+  }
+  .btn-neon-cyan:hover {
+    background: rgba(0,245,255,0.12);
+    border-color: rgba(0,245,255,0.8);
+    box-shadow: 0 0 20px rgba(0,245,255,0.3), inset 0 0 20px rgba(0,245,255,0.05);
+    transform: translateY(-1px);
+  }
+
+  .btn-neon-blue {
+    @apply px-6 py-2.5 font-mono text-sm font-semibold tracking-wider uppercase transition-all duration-300;
+    color: #60a5fa;
+    border: 1px solid rgba(0,102,255,0.4);
+    background: rgba(0,102,255,0.08);
+    border-radius: 4px;
+  }
+  .btn-neon-blue:hover {
+    background: rgba(0,102,255,0.15);
+    border-color: rgba(0,102,255,0.8);
+    box-shadow: 0 0 20px rgba(0,102,255,0.3);
+    transform: translateY(-1px);
+  }
+
+  .btn-neon-solid {
+    @apply px-6 py-2.5 font-mono text-sm font-bold tracking-wider uppercase transition-all duration-300;
+    background: linear-gradient(135deg, rgba(0,102,255,0.8), rgba(0,245,255,0.6));
+    color: white;
+    border: 1px solid rgba(0,245,255,0.3);
+    border-radius: 4px;
+  }
+  .btn-neon-solid:hover {
+    background: linear-gradient(135deg, rgba(0,102,255,1), rgba(0,245,255,0.8));
+    box-shadow: 0 0 30px rgba(0,245,255,0.4), 0 0 60px rgba(0,102,255,0.2);
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  /* Grid background */
+  .grid-bg {
+    background-image: linear-gradient(rgba(0,245,255,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0,245,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Terminal */
+  .terminal-panel {
+    @apply font-mono text-sm;
+    background: rgba(2, 8, 23, 0.95);
+    border: 1px solid rgba(0,245,255,0.15);
+    box-shadow: 0 0 0 1px rgba(0,245,255,0.05), inset 0 0 60px rgba(0,0,0,0.5);
+  }
+
+  /* Status badges */
+  .badge-pass {
+    @apply px-2 py-0.5 text-xs font-mono font-bold rounded;
+    color: #00ff88;
+    background: rgba(0,255,136,0.1);
+    border: 1px solid rgba(0,255,136,0.3);
+  }
+  .badge-revise {
+    @apply px-2 py-0.5 text-xs font-mono font-bold rounded;
+    color: #fbbf24;
+    background: rgba(251,191,36,0.1);
+    border: 1px solid rgba(251,191,36,0.3);
+  }
+  .badge-retry {
+    @apply px-2 py-0.5 text-xs font-mono font-bold rounded;
+    color: #f87171;
+    background: rgba(248,113,113,0.1);
+    border: 1px solid rgba(248,113,113,0.3);
+  }
+  .badge-active {
+    @apply px-2 py-0.5 text-xs font-mono font-bold rounded;
+    color: #60a5fa;
+    background: rgba(96,165,250,0.1);
+    border: 1px solid rgba(96,165,250,0.3);
+  }
+  .badge-locked {
+    @apply px-2 py-0.5 text-xs font-mono font-bold rounded;
+    color: #6b7280;
+    background: rgba(107,114,128,0.1);
+    border: 1px solid rgba(107,114,128,0.2);
+  }
+
+  /* Glow border animate */
+  .glow-border-cyan {
+    animation: glowBorderCyan 2s ease-in-out infinite;
+  }
+
+  @keyframes glowBorderCyan {
+    0%, 100% { box-shadow: 0 0 10px rgba(0,245,255,0.2), 0 0 20px rgba(0,245,255,0.1); }
+    50% { box-shadow: 0 0 20px rgba(0,245,255,0.5), 0 0 40px rgba(0,245,255,0.2); }
+  }
+
+  /* Input */
+  .neon-input {
+    @apply w-full px-4 py-3 font-mono text-sm outline-none transition-all duration-300;
+    background: rgba(6,14,31,0.8);
+    border: 1px solid rgba(15,32,64,0.8);
+    border-radius: 4px;
+    color: #e2e8f0;
+  }
+  .neon-input:focus {
+    border-color: rgba(0,245,255,0.5);
+    box-shadow: 0 0 15px rgba(0,245,255,0.15), inset 0 0 10px rgba(0,245,255,0.03);
+    outline: none;
+  }
+  .neon-input::placeholder {
+    color: #374151;
+  }
+
+  /* Scan line effect */
+  .scanline::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(transparent, rgba(0,245,255,0.08), transparent);
+    animation: scanLine 4s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes scanLine {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100%); }
+  }
+
+  /* Hex ID style */
+  .hex-id {
+    @apply font-mono text-xs;
+    color: rgba(0,245,255,0.5);
+  }
+}
