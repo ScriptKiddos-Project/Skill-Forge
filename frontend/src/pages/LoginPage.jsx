@@ -19,8 +19,8 @@ export default function LoginPage() {
     setError('')
     setLoading(true)
     try {
-      const res = await api.post('/auth/login', { email, password })
-      setAuth(res.data.user, res.data.token)
+      const res = await api.post('/api/auth/login', { email, password })
+      setAuth(res.data.user, res.data.access_token)
       navigate('/dashboard')
     } catch (err) {
       setError(err.response?.data?.detail || 'Invalid credentials')

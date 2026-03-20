@@ -1,21 +1,25 @@
 from pydantic_settings import BaseSettings
+from functools import lru_cache
 
 
 class Settings(BaseSettings):
-    POSTGRES_USER: str = "skillforge"
+    # Database
+    POSTGRES_USER:     str = "skillforge"
     POSTGRES_PASSWORD: str = "skillforge123"
-    POSTGRES_DB: str = "skillforge"
-    POSTGRES_HOST: str = "localhost"
-    POSTGRES_PORT: int = 5432
+    POSTGRES_DB:       str = "skillforge"
+    POSTGRES_HOST:     str = "localhost"
+    POSTGRES_PORT:     int = 5432
 
-    SECRET_KEY: str = "change-me-32-char-random-string!!"
-    ALGORITHM: str = "HS256"
-    ACCESS_TOKEN_EXPIRE_HOURS: int = 24
+    # Auth
+    SECRET_KEY:                  str = "change-me-in-production"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 1440
 
+    # LLM
     LLM_PROVIDER: str = "groq"
     GROQ_API_KEY: str = ""
 
-    VITE_API_URL: str = "http://localhost:8000"
+    # HuggingFace cache
+    HF_HOME: str = "./.hf_cache"
 
     @property
     def DATABASE_URL(self) -> str:
@@ -24,8 +28,12 @@ class Settings(BaseSettings):
             f"@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
         )
 
-    class Config:
-        env_file = ".env"
+    model_config = {"env_file": ".env", "extra": "ignore"}
 
 
-settings = Settings()
+@lru_cache
+def get_settings() -> Settings:
+    return Settings()
+
+
+settings = get_settings()

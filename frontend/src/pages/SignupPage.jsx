@@ -17,8 +17,8 @@ export default function SignupPage() {
     setError('')
     setLoading(true)
     try {
-      const res = await api.post('/auth/register', form)
-      setAuth(res.data.user, res.data.token)
+      const res = await api.post('/api/auth/signup', form)
+      setAuth(res.data.user, res.data.access_token)
       navigate('/onboarding')
     } catch (err) {
       setError(err.response?.data?.detail || 'Registration failed. Please try again.')
