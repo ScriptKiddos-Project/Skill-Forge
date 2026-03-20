@@ -22,6 +22,7 @@ export default function OnboardingPage() {
   const [jdFile, setJdFile] = useState(null)
   const [selectedJob, setSelectedJob] = useState(null)
   const [loading, setLoading] = useState(false)
+  const [loadingStatus, setLoadingStatus] = useState('')
   const [dragOver, setDragOver] = useState(false)
   const fileRef = useRef(null)
   const jdFileRef = useRef(null)
@@ -38,6 +39,8 @@ export default function OnboardingPage() {
 
   async function handleAnalyze() {
     setLoading(true)
+
+    // Demo mode shortcut
     if (isDemo) {
       setTimeout(() => {
         setPathway(demoPathway)
@@ -46,17 +49,57 @@ export default function OnboardingPage() {
       }, 500)
       return
     }
-    try {
-      const fd = new FormData()
-      if (resumeFile) fd.append('resume', resumeFile)
-      if (jdTab === 'paste') fd.append('jd_text', jdText)
-      if (jdTab === 'upload' && jdFile) fd.append('jd_file', jdFile)
-      if (jdTab === 'remotejob' && selectedJob) fd.append('jd_id', selectedJob.id)
 
-      const res = await api.post('/api/analyze', fd, { headers: { 'Content-Type': 'multipart/form-data' } })
-      navigate(`/analyzing?job_id=${res.data.job_id}`)
+    try {
+      // ── Step 1: Upload resume, get resume_file_id ──────────────────────
+      setLoadingStatus('Uploading resume...')
+      const resumeForm = new FormData()
+      resumeForm.append('file', resumeFile)
+      const resumeRes = await api.post('/api/upload/resume', resumeForm, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      })
+      const resumeFileId = resumeRes.data.file_id
+
+      // ── Step 2: Upload / resolve JD, get jd_file_id ───────────────────
+      setLoadingStatus('Processing job description...')
+      let jdFileId = null
+
+      if (jdTab === 'paste') {
+        // Send JD text as a plain-text file upload
+        const blob = new Blob([jdText], { type: 'text/plain' })
+        const jdForm = new FormData()
+        jdForm.append('file', blob, 'job_description.txt')
+        const jdRes = await api.post('/api/upload/jd', jdForm, {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        })
+        jdFileId = jdRes.data.file_id
+
+      } else if (jdTab === 'upload' && jdFile) {
+        const jdForm = new FormData()
+        jdForm.append('file', jdFile)
+        const jdRes = await api.post('/api/upload/jd', jdForm, {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        })
+        jdFileId = jdRes.data.file_id
+
+      } else if (jdTab === 'remotejob' && selectedJob) {
+        // Remote jobs are already known to the backend — pass id directly
+        jdFileId = null  // will send jd_id instead
+      }
+
+      // ── Step 3: Kick off analysis with IDs only (JSON body) ───────────
+      setLoadingStatus('Analyzing skill gap...')
+      const analyzePayload =
+        jdTab === 'remotejob' && selectedJob
+          ? { resume_id: resumeFileId, jd_id: selectedJob.id }
+          : { resume_id: resumeFileId, jd_file_id: jdFileId }
+
+      const analyzeRes = await api.post('/api/analyze', analyzePayload)
+      navigate(`/analyzing?job_id=${analyzeRes.data.job_id}`)
+
     } catch (err) {
-      console.error(err)
+      console.error('Analyze error:', err)
+      setLoadingStatus('Error — please try again.')
     } finally {
       setLoading(false)
     }
@@ -230,8 +273,18 @@ export default function OnboardingPage() {
                 </div>
               )}
 
+              {/* Loading status */}
+              {loading && loadingStatus && (
+                <div className="flex items-center gap-2 px-3 py-2 rounded"
+                  style={{ background: 'rgba(0,245,255,0.05)', border: '1px solid rgba(0,245,255,0.15)' }}>
+                  <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#00f5ff' }} />
+                  <span className="text-xs font-mono" style={{ color: '#00f5ff' }}>{loadingStatus}</span>
+                </div>
+              )}
+
               <div className="flex gap-3 pt-2">
-                <button onClick={() => setStep(1)} className="btn-neon-blue flex-1 py-3">
+                <button onClick={() => setStep(1)} disabled={loading}
+                  className="btn-neon-blue flex-1 py-3 disabled:opacity-40">
                   ← BACK
                 </button>
                 <button onClick={handleAnalyze} disabled={!canAnalyze || loading}

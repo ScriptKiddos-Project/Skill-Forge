@@ -21,12 +21,10 @@ function ChatBubble({ msg }) {
             border: `1px solid ${isAI ? 'rgba(0,245,255,0.12)' : 'rgba(0,102,255,0.25)'}`,
             color: isAI ? '#94a3b8' : '#bfdbfe',
           }}>
-          {/* Prefix for AI */}
           {isAI && <span style={{ color: 'rgba(0,245,255,0.5)' }}>{`> `}</span>}
           <span style={{ whiteSpace: 'pre-line' }}>{msg.content}</span>
         </div>
 
-        {/* Attachment */}
         {msg.attachment && (
           <div className="flex items-center gap-2 px-2.5 py-1.5 rounded cursor-pointer transition-all"
             style={{ background: 'rgba(6,14,31,0.8)', border: '1px solid rgba(0,245,255,0.15)' }}>
@@ -75,7 +73,8 @@ function TypingIndicator() {
 
 export default function MentorChat({ compact = false }) {
   const { chatHistory, addMessage } = usePathwayStore()
-  const { isDemo } = useAuthStore()
+  // ── Pull user_id from auth store so we can include it in every request ──
+  const { isDemo, user } = useAuthStore()
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const endRef = useRef(null)
@@ -100,10 +99,18 @@ export default function MentorChat({ compact = false }) {
         addMessage({ role: 'assistant', content: reply, timestamp: new Date().toISOString() })
       } else {
         const history = [...chatHistory, userMsg].slice(-6)
-        const res = await api.post('/api/chat', { message: text, history })
+
+        // ── FIX: backend expects { message, user_id, history } ──────────
+        const res = await api.post('/api/chat', {
+          message: text,
+          user_id: user?.id ?? user?.user_id ?? '',   // adapt key to match your auth store shape
+          history,
+        })
+
         addMessage({ role: 'assistant', content: res.data.reply, timestamp: new Date().toISOString() })
       }
-    } catch {
+    } catch (err) {
+      console.error('Chat error:', err)
       addMessage({ role: 'assistant', content: 'Connection error. Please retry.', timestamp: new Date().toISOString() })
     } finally {
       setIsLoading(false)
@@ -138,8 +145,7 @@ export default function MentorChat({ compact = false }) {
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-0"
-        style={{ minHeight: 0 }}>
+      <div className="flex-1 overflow-y-auto p-4 space-y-0" style={{ minHeight: 0 }}>
         {chatHistory.length === 0 && (
           <div className="text-center py-8">
             <p className="text-xs font-mono text-gray-600">
